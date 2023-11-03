@@ -30,8 +30,8 @@ namespace winrt::Ventoy_WinUI3_CPlusPlus::implementation
         throw hresult_not_implemented();
     }
 
-    void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
-    {
-        myButton().Content(box_value(L"Clicked"));
-    }
+    //void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
+    //{
+    //    myButton().Content(box_value(L"Clicked"));
+    //}
 }

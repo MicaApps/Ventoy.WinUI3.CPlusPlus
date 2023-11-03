@@ -1,18 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Window
-    x:Class="Ventoy_WinUI3_CPlusPlus.MainWindow"
+﻿<Page
+    x:Class="Ventoy_WinUI3_CPlusPlus.BlankPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ventoy_WinUI3_CPlusPlus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+   xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Window.SystemBackdrop>
-        <MicaBackdrop/>
-    </Window.SystemBackdrop>
-
-    <StackPanel VerticalAlignment="Bottom">
+    <Grid>
 
         <ScrollViewer>
             <Grid Margin="30">
@@ -344,165 +341,111 @@
                         </Grid>
                     </Grid>
 
-                    <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xF83D;"  Margin="20"/>
-                            <TextBlock Text="安全启动支持" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <ToggleSwitch HorizontalAlignment="Right" Margin="-60"/>
-                    </Grid>
-                   
-                    <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xE88E;"  Margin="20"/>
-                            <TextBlock Text="目标启动设备" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
+                    <labs:SettingsCard Description="看起来这是一个TPM支持"
+                           Header="安全启动支持">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xF83D;" />
+                        </labs:SettingsCard.HeaderIcon>
+                        <ToggleSwitch x:Name="SecureBoot" IsOn="True" Toggled="SecureBoot_Toggled"/>
+                    </labs:SettingsCard>
+
+                    <labs:SettingsCard x:Name="settingsCard"
+                           Description="This is a default card, with the Header, HeaderIcon, Description and Content set."
+                           Header="目标启动设备"
+                           IsEnabled="True">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE88E;" />
+                        </labs:SettingsCard.HeaderIcon>
+                        <ComboBox SelectedIndex="3" x:Name ="TargetBootDevice" SelectionChanged="TargetBootDevice_SelectionChanged">
                             <ComboBoxItem>C</ComboBoxItem>
                             <ComboBoxItem>D</ComboBoxItem>
                             <ComboBoxItem>E</ComboBoxItem>
                             <ComboBoxItem>F</ComboBoxItem>
                         </ComboBox>
-                    </Grid>
+                    </labs:SettingsCard>
 
-                    <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                            <TextBlock Text="分区类型" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                            <ComboBoxItem>C</ComboBoxItem>
-                            <ComboBoxItem>D</ComboBoxItem>
-                            <ComboBoxItem>E</ComboBoxItem>
-                            <ComboBoxItem>F</ComboBoxItem>
+                    <labs:SettingsCard x:Name="settingsCard3"
+                           Description="This is a default card, with the Header, HeaderIcon, Description and Content set."
+                           Header="分区类型"
+                           IsEnabled="True">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xEE94;" />
+                        </labs:SettingsCard.HeaderIcon>
+                        <ComboBox SelectedIndex = "0" x:Name="PartitionType" SelectionChanged="PartitionType_SelectionChanged">
+                            <ComboBoxItem >MBR</ComboBoxItem>
+                            <ComboBoxItem >GPT</ComboBoxItem>
                         </ComboBox>
-                    </Grid>
+                    </labs:SettingsCard>
 
-                    <Expander HorizontalContentAlignment="Left" Padding="0" HorizontalAlignment="Stretch">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon Glyph="&#xEB05;"  Margin="20"/>
-                                <TextBlock Text="分区设置" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Expander.Content>
-                            <StackPanel Background="OrangeRed" >
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="文件系统" VerticalAlignment="Center"/>
-                                    <StackPanel Background="Red" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <RadioButton Content="EXFAT"/>
-                                        <RadioButton Content="NTFS"/>
-                                        <RadioButton Content="FAT32"/>
-                                        <RadioButton Content="UDF"/>
-                                    </StackPanel>
-                                    
-                                </Grid>
+                    <labs:SettingsExpander x:Name="settingsCard5"
+                               Description="这是拿来干啥的嘞？"
+                               Header="分区设置"
+                               IsEnabled="True"
+                               IsExpanded="True">
+                        <!--  TODO: This should be TwoWay bound but throws compile error in Uno.  -->
+                        <labs:SettingsExpander.HeaderIcon>
+                            <FontIcon Glyph="&#xEB05;" />
+                        </labs:SettingsExpander.HeaderIcon>
+                        <ToggleSwitch/>
+
+                        <labs:SettingsExpander.Items>
+
+                            <labs:SettingsCard ContentAlignment="Right" Header="文件系统">
+                                <RadioButtons x:Name="BackgroundRadioButtons" SelectedIndex="0"  MaxColumns="4" Margin="0 0 -60 0" VerticalAlignment="Center" SelectionChanged="FileSystem_SelectionChanged">
+                                    <x:String>EXFAT</x:String>
+                                    <x:String>NTFS</x:String>
+                                    <x:String>FAT32</x:String>
+                                    <x:String>UDF</x:String>
+                                </RadioButtons>
+
+                            </labs:SettingsCard>
+
+                            <labs:SettingsCard ContentAlignment="Right" Header="簇大小">
                                 <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="簇大小" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                                        <ComboBoxItem>C</ComboBoxItem>
-                                        <ComboBoxItem>D</ComboBoxItem>
-                                        <ComboBoxItem>E</ComboBoxItem>
-                                        <ComboBoxItem>F</ComboBoxItem>
+                                    <Slider AutomationProperties.Name="Slider with ticks" TickFrequency="10" TickPlacement="Outside" Width="230" Margin="5 0 5 0"/>
+                                    <AutoSuggestBox Width="100" AutomationProperties.Name="Basic AutoSuggestBox" Margin="5 0 0 0" Height="32"/>
+                                </StackPanel>
+
+                            </labs:SettingsCard>
+
+                            <labs:SettingsCard ContentAlignment="Right" Header="在磁盘保留最后一段空间" >
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <ToggleSwitch x:Name="DiskLastSpace" Margin="5 0 5 0" Toggled="DiskLastSpace_Toggled"/>
+                                    <AutoSuggestBox x:Name ="DiskLastSpace_Num" TextChanged="DiskLastSpace_Num_TextChanged" Width="100" AutomationProperties.Name="Basic AutoSuggestBox" Margin="5 0 5 0" Height="32"/>
+                                    <ComboBox  x:Name ="DiskLastSpace_Unit" SelectedIndex="1" Width="150" Margin="5 0 0 0" VerticalAlignment="Center" SelectionChanged="DiskLastSpace_Unit_SelectionChanged">
+                                        <x:String>GB</x:String>
+                                        <x:String>MB</x:String>
+                                        <x:String>KB</x:String>
                                     </ComboBox>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="在磁盘保留最后一段空间" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                                        <ComboBoxItem>C</ComboBoxItem>
-                                        <ComboBoxItem>D</ComboBoxItem>
-                                        <ComboBoxItem>E</ComboBoxItem>
-                                        <ComboBoxItem>F</ComboBoxItem>
-                                    </ComboBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="分区按照4kb对齐" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <ToggleSwitch/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Expander.Content>
-                    </Expander>
+                            </labs:SettingsCard>
 
-                    <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xE160;"  Margin="20"/>
-                            <TextBlock Text="创建 VTSI 文件" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <ToggleSwitch HorizontalAlignment="Right" Margin="-60"/>
-                    </Grid>
+                            <labs:SettingsCard Header="分区按照 4kb 对齐">
+                                <ToggleSwitch/>
+                            </labs:SettingsCard>
 
-                    <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Orientation="Horizontal">
-                            <FontIcon Glyph="&#xEA0D;"  Margin="20"/>
-                            <TextBlock Text="无损安装" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <ToggleSwitch HorizontalAlignment="Right" Margin="-60"/>
-                    </Grid>
+                        </labs:SettingsExpander.Items>
+                    </labs:SettingsExpander>
 
+                    <labs:SettingsCard Description="看起来这是一个TPM支持"
+                           Header="创建VTSI文件">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE160;" />
+                        </labs:SettingsCard.HeaderIcon>
+                        <ToggleSwitch/>
+                    </labs:SettingsCard>
 
+                    <labs:SettingsCard Description="看起来这是一个TPM支持"
+                           Header="无损安装">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xEA0D;" />
+                        </labs:SettingsCard.HeaderIcon>
+                        <ToggleSwitch Toggled="LosslessInstallation_Toggled"/>
+                    </labs:SettingsCard>
 
                 </StackPanel>
-                
-                
-                
-                
             </Grid>
         </ScrollViewer>
-
-        <Grid x:Name="ContentArea">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="48"/>
-            </Grid.RowDefinitions>
-            <Frame x:Name="Pages" Grid.Row="0"/>
-            <Grid Grid.Row="1"  Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
-                <Grid VerticalAlignment="Bottom" Height="48" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
-                            <CommandBar HorizontalContentAlignment="Stretch" VerticalAlignment="Top" x:Name="Commands" IsOpen="false" Background="Transparent" DefaultLabelPosition="Right">
-                                <AppBarButton HorizontalAlignment="Left" Icon="Play" Label="Install" x:Name="StartInstall" x:Uid="StartInstall" />
-                                <AppBarButton Icon="Clock" x:Name="Update" x:Uid="Update" Label="Update" />
-                            </CommandBar>
-                        </StackPanel>
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-                        <ProgressBar VerticalAlignment="Center" Maximum="800" Value="500"/>
-                    </Grid>
-
-                    <!--设置右对齐-->
-                    <Grid Grid.Column="2">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                            <CommandBar HorizontalContentAlignment="Right" VerticalAlignment="Top" x:Name="Commands3" IsOpen="false" Background="Transparent" DefaultLabelPosition="Right">
-                                <AppBarSeparator/>
-                                <AppBarButton Icon="Setting" x:Name="Setting3" Label="Settings" x:Uid="Setting3"/>
-                            </CommandBar>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-                <!--安装、更新、进度条左对齐-->
-            </Grid>
-        </Grid>
-
-        <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
-    </StackPanel>
-</Window>
+    </Grid>
+</Page>
