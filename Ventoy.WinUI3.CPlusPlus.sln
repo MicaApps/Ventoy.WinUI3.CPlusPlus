@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ventoy.WinUI3.CPlusPlus", "Ventoy.WinUI3.CPlusPlus\Ventoy.WinUI3.CPlusPlus.vcxproj", "{D6A14732-26EF-4A6C-9203-2AC1D3A9282D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinUI3Package", "..\WinUIEssentials2\WinUI3Package\WinUI3Package.vcxproj", "{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -33,6 +35,18 @@ Global
 		{D6A14732-26EF-4A6C-9203-2AC1D3A9282D}.Release|x86.ActiveCfg = Release|Win32
 		{D6A14732-26EF-4A6C-9203-2AC1D3A9282D}.Release|x86.Build.0 = Release|Win32
 		{D6A14732-26EF-4A6C-9203-2AC1D3A9282D}.Release|x86.Deploy.0 = Release|Win32
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|ARM64.Build.0 = Debug|ARM64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|x64.ActiveCfg = Debug|x64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|x64.Build.0 = Debug|x64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|x86.ActiveCfg = Debug|Win32
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Debug|x86.Build.0 = Debug|Win32
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|ARM64.ActiveCfg = Release|ARM64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|ARM64.Build.0 = Release|ARM64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|x64.ActiveCfg = Release|x64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|x64.Build.0 = Release|x64
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|x86.ActiveCfg = Release|Win32
+		{E006BDA6-4CC1-4EC4-A1CF-807E16BCBF58}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

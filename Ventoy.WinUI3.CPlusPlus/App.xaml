@@ -6,8 +6,18 @@
     xmlns:local="using:Ventoy_WinUI3_CPlusPlus">
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="CustomFont">Assets/Fonts/DancingScript-Bold.ttf#Dancing Script</FontFamily>
             <ResourceDictionary.MergedDictionaries>
+                
+
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+
+
+                <!-- Other merged dictionaries here -->
+                <ResourceDictionary Source="ms-appx:///GroupBox_Resource.xaml"/>
+                <ResourceDictionary Source="ms-appx:///SettingsCard_Resource.xaml"/>
+                <ResourceDictionary Source="ms-appx:///SettingsExpander_Resource.xaml"/>
+
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->

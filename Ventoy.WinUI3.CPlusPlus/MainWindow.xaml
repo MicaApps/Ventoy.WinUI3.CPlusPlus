@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Window
     x:Class="Ventoy_WinUI3_CPlusPlus.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -6,14 +5,14 @@
     xmlns:local="using:Ventoy_WinUI3_CPlusPlus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:essential="using:WinUI3Package"
     mc:Ignorable="d">
 
     <Window.SystemBackdrop>
         <MicaBackdrop/>
     </Window.SystemBackdrop>
 
-    <StackPanel VerticalAlignment="Bottom">
-
+    <Grid>
         <ScrollViewer>
             <Grid Margin="30">
                 <StackPanel Spacing="4">
@@ -29,7 +28,7 @@
 
                             <StackPanel Grid.Column="0" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="LESLIE" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/LESLIE.ttf" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" >
@@ -78,7 +77,7 @@
 
                             <StackPanel Grid.Column="2" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="LESLIE" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/DancingScript-Bold.ttf#Dancing Script" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" >
@@ -351,7 +350,7 @@
                         </StackPanel>
                         <ToggleSwitch HorizontalAlignment="Right" Margin="-60"/>
                     </Grid>
-                   
+
                     <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE88E;"  Margin="20"/>
@@ -371,70 +370,61 @@
                             <TextBlock Text="分区类型" VerticalAlignment="Center"/>
                         </StackPanel>
                         <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                            <ComboBoxItem>C</ComboBoxItem>
-                            <ComboBoxItem>D</ComboBoxItem>
-                            <ComboBoxItem>E</ComboBoxItem>
-                            <ComboBoxItem>F</ComboBoxItem>
+                            <ComboBoxItem>MBR</ComboBoxItem>
+                            <ComboBoxItem>GPT</ComboBoxItem>
                         </ComboBox>
                     </Grid>
 
-                    <Expander HorizontalContentAlignment="Left" Padding="0" HorizontalAlignment="Stretch">
-                        <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon Glyph="&#xEB05;"  Margin="20"/>
-                                <TextBlock Text="分区设置" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Expander.Header>
-                        <Expander.Content>
-                            <StackPanel Background="OrangeRed" >
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="文件系统" VerticalAlignment="Center"/>
-                                    <StackPanel Background="Red" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <RadioButton Content="EXFAT"/>
-                                        <RadioButton Content="NTFS"/>
-                                        <RadioButton Content="FAT32"/>
-                                        <RadioButton Content="UDF"/>
-                                    </StackPanel>
-                                    
-                                </Grid>
+                    <essential:SettingsExpander
+               Description="这是拿来干啥的嘞？"
+               Header="分区设置"
+               IsEnabled="True"
+               IsExpanded="True">
+                        <!--  TODO: This should be TwoWay bound but throws compile error in Uno.  -->
+                        <essential:SettingsExpander.HeaderIcon>
+                            <FontIcon Glyph="&#xEB05;" />
+                        </essential:SettingsExpander.HeaderIcon>
+
+                        <essential:SettingsExpander.Items>
+                            <essential:SettingsCard Header="文件系统">
                                 <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="簇大小" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                                        <ComboBoxItem>C</ComboBoxItem>
-                                        <ComboBoxItem>D</ComboBoxItem>
-                                        <ComboBoxItem>E</ComboBoxItem>
-                                        <ComboBoxItem>F</ComboBoxItem>
-                                    </ComboBox>
+                                    <RadioButton Content="EXFAT"/>
+                                    <RadioButton Content="NTFS"/>
+                                    <RadioButton Content="FAT32"/>
+                                    <RadioButton Content="UDF"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="在磁盘保留最后一段空间" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0 ">
-                                        <ComboBoxItem>C</ComboBoxItem>
-                                        <ComboBoxItem>D</ComboBoxItem>
-                                        <ComboBoxItem>E</ComboBoxItem>
-                                        <ComboBoxItem>F</ComboBoxItem>
-                                    </ComboBox>
+                            </essential:SettingsCard>
+                            <essential:SettingsCard Header="簇大小">
+                                <StackPanel Orientation="Horizontal" >
+                                    <Slider Width="200"
+     AutomationProperties.Name="Slider with ticks"
+     TickFrequency="20"
+     TickPlacement="Outside"
+     SnapsTo="StepValues" />
+                                    <TextBox Width="30"/>
+
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon Glyph="&#xEE94;"  Margin="20"/>
-                                        <TextBlock Text="分区按照4kb对齐" VerticalAlignment="Center"/>
+                            </essential:SettingsCard>
+                            <essential:SettingsCard Header="在磁盘保留最后一段空间">
+                                <StackPanel>
+                                    <ToggleSwitch HorizontalAlignment="Right"/>
+                                    <StackPanel Orientation="Horizontal" >
+
+                                        <TextBox Width="30"/>
+                                        <ComboBox SelectedItem="MB">
+                                            <ComboBoxItem Content="MB"/>
+                                            <ComboBoxItem Content="KB"/>
+                                        </ComboBox>
                                     </StackPanel>
-                                    <ToggleSwitch/>
                                 </StackPanel>
-                            </StackPanel>
-                        </Expander.Content>
-                    </Expander>
+
+                            </essential:SettingsCard>
+                            <essential:SettingsCard Header="分区按照4kb对齐">
+                                <ToggleSwitch/>
+                            </essential:SettingsCard>
+                        </essential:SettingsExpander.Items>
+
+                    </essential:SettingsExpander>
 
                     <Grid Height="70" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="4" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
                         <StackPanel Orientation="Horizontal">
@@ -455,13 +445,12 @@
 
 
                 </StackPanel>
-                
-                
-                
-                
+
+
+
+
             </Grid>
         </ScrollViewer>
-
         <Grid x:Name="ContentArea">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -502,7 +491,5 @@
                 <!--安装、更新、进度条左对齐-->
             </Grid>
         </Grid>
-
-        <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
-    </StackPanel>
+    </Grid>
 </Window>

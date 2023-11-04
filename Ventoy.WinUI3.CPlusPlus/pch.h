@@ -6,6 +6,8 @@
 #include <unknwn.h>
 #include <restrictederrorinfo.h>
 #include <hstring.h>
+#include <winrt/WinUI3Package.h>
+#include <winrt/Microsoft.UI.Xaml.Controls.AnimatedVisuals.h>
 
 // Undefine GetCurrentTime macro to prevent
 // conflict with Storyboard::GetCurrentTime
