@@ -28,7 +28,7 @@
 
                             <StackPanel Grid.Column="0" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/LESLIE.ttf" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" >
@@ -77,7 +77,7 @@
 
                             <StackPanel Grid.Column="2" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/DancingScript-Bold.ttf#Dancing Script" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" >
@@ -136,7 +136,7 @@
 
                             <StackPanel Grid.Column="0" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="LESLIE" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" >
@@ -185,7 +185,7 @@
 
                             <StackPanel Grid.Column="2" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="8.8.8.8.8.8." FontFamily="LESLIE" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="8.8.8.8.8.8." FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" >
@@ -244,7 +244,7 @@
 
                             <StackPanel Grid.Column="0" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="1.0.9.6." FontFamily="LESLIE" FontSize="52" Margin="0 20"/>
+                                <TextBlock Text="1.0.9.6." FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" >
@@ -293,7 +293,7 @@
 
                             <StackPanel Grid.Column="2" >
                                 <TextBlock Text="版本号"></TextBlock>
-                                <TextBlock Text="-" FontFamily="LESLIE" FontSize="52" Margin="0 20"></TextBlock>
+                                <TextBlock Text="-" FontFamily="ms-appx:///Assets/Fonts/LESLIE.TTF#LESLIE" FontSize="52" Margin="0 20"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" >

@@ -168,16 +168,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\OneDrive - Robbita Network Limited\Library\Fonts\27款液晶数字英文字体打包下载\LESLIE.TTF">
-      <FileType>Document</FileType>
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <CopyFileToFolders Include="..\..\..\..\OneDrive - MSFT\下载\Dancing_Script\static\DancingScript-Bold.ttf">
       <DeploymentContent>false</DeploymentContent>
       <FileType>Document</FileType>
     </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\LESLIE.TTF" />
   </ItemGroup>
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
